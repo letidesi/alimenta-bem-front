@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import '../css/Style.css';
 
 const CreateUser = () => {
     const [userData, setUserData] = useState({
@@ -8,39 +9,60 @@ const CreateUser = () => {
         password: ''
     });
 
+    const [successMessage, setSuccessMessage] = useState('');
+    const [errorMessage, setErrorMessage] = useState('');
+
     const handleChange = (e) => {
         setUserData({
             ...userData,
             [e.target.name]: e.target.value
         });
     };
+    const URL = process.env.REACT_APP_API_BASE_URL;
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setSuccessMessage('');
+        setErrorMessage('');
         try {
-            const response = await axios.post(`${process.env.REACT_APP_API_BASE_URL}/user`, userData);
-            console.log('User created:', response.data);
+            await axios.post(`${URL}/user`, userData);
+            setSuccessMessage('Usuário criado com sucesso!');
         } catch (error) {
-            console.error('There was an error creating the user!', error);
+            setErrorMessage('Ocorreu um erro ao criar o usuário.');
         }
     };
 
     return (
-        <form onSubmit={handleSubmit}>
-            <div>
-                <label>Nome</label>
-                <input type="text" name="name" value={userData.name} onChange={handleChange} />
-            </div>
-            <div>
-                <label>Email</label>
-                <input type="email" name="email" value={userData.email} onChange={handleChange} />
-            </div>
-            <div>
-                <label>Senha</label>
-                <input type="password" name="password" value={userData.password} onChange={handleChange} />
-            </div>
-            <button type="submit">Enviar</button>
-        </form>
+        <div>
+            <form className="create-user-form" onSubmit={handleSubmit}>
+                <h2>Registrar Usuário</h2>
+                <div className="form-group">
+                    <label>Nome</label>
+                    <input type="text" name="name" value={userData.name} onChange={handleChange} />
+                </div>
+                <div className="form-group">
+                    <label>Email</label>
+                    <input type="email" name="email" value={userData.email} onChange={handleChange} />
+                </div>
+                <div className="form-group">
+                    <label>Senha</label>
+                    <input type="password" name="password" value={userData.password} onChange={handleChange} />
+                </div>
+                <button type="submit" className="submit-btn">Enviar</button>
+            </form>
+
+            {successMessage && (
+                <div className="success-message">
+                    {successMessage}
+                </div>
+            )}
+
+            {errorMessage && (
+                <div className="error-message">
+                    {errorMessage}
+                </div>
+            )}
+        </div>
     );
 };
 
