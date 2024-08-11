@@ -1,0 +1,136 @@
+body {
+    background-color: #f0f2f5;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Estilos para o cabeçalho do projeto */
+.project-header {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+
+.project-header h1 {
+    font-size: 2.5em;
+    color: #510757;
+    margin-bottom: 10px;
+}
+
+.project-header p {
+    font-size: 1.2em;
+    color: #333;
+}
+
+/* Contêiner para os formulários */
+.form-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px; 
+    padding: 20px;
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+/* Estilos para os formulários individuais */
+.create-user-form {
+    max-width: 600px; 
+    padding: 90px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.create-user-form h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #510757;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+    background-color: #022349;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+/* Estilos para É PCD */
+.form-group label {
+    color: #555;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-group-checkbox {
+    display: flex;
+    align-items: center; 
+    white-space: nowrap; 
+}
+
+.form-group-checkbox label {
+    display: inline-flex;
+    align-items: center;
+    margin-bottom: 0;
+}
+
+.form-group-checkbox input[type="checkbox"] {
+    margin-right: 6px;
+    margin-left: 0;
+}
+
+
+/* Estilos para mensagem de erro ou sucesso */
+.success-message {
+    margin-top: 15px;
+    color: #006317; 
+    background-color: #d4edda;
+    padding: 10px;
+    border-radius: 4px;
+    text-align: center;
+    border: 1px solid #c3e6cb;
+}
+
+.error-message {
+    margin-top: 15px;
+    color: #86010e; 
+    background-color: #f8d7da;
+    padding: 10px;
+    border-radius: 4px;
+    text-align: center;
+    border: 1px solid #f5c6cb;
+}
